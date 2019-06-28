@@ -12,44 +12,51 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
-    private List<Product> productList;
+
+
+    private List<Product>cartList;
     private Context context;
 
-    public CartAdapter(List<Product> productList, Context context) {
-        this.productList = productList;
+    public CartAdapter(List<Product> cartList, Context context) {
+        this.cartList = cartList;
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item_layout,parent,false);
+
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Product cartProduct = productList.get(position);
-        holder.pName.setText(cartProduct.getProductName());
-        holder.pPrice.setText(cartProduct.getProductPrice());
-        holder.pQuantity.setText(cartProduct.getQuantity());
+        Product currentCart = cartList.get(position);
+        holder.proName.setText(currentCart.getProductName());
+        holder.proPrice.setText(currentCart.getProductPrice());
+//        holder.proQuantity.setText(currentCart.getCartProductQuantity());
 
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return cartList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView pName, pPrice, pQuantity;
+
+        TextView proName, proPrice, proQuantity;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            pName = itemView.findViewById(R.id.productNameTV);
-            pPrice= itemView.findViewById(R.id.productPriceTV);
-            pQuantity = itemView.findViewById(R.id.cartProductQuantity);
+
+            proName = itemView.findViewById(R.id.productNameTV);
+            proPrice = itemView.findViewById(R.id.productPriceTV);
+            //proQuantity = itemView.findViewById(R.id.cartProductQuantity);
+
 
         }
     }

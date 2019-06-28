@@ -36,6 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.productName.setText(currentProduct.getProductName());
         holder.productPrice.setText(currentProduct.getProductPrice());
 
+
     }
 
     @Override
@@ -44,11 +45,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, productPrice;
+        TextView productName, productPrice,proQ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.productNameTV);
             productPrice = itemView.findViewById(R.id.productPriceTV);
+
         }
     }
 }
